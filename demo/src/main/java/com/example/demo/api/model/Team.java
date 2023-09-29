@@ -3,19 +3,24 @@ package com.example.demo.api.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "teams")
 public class Team {
 
-    private String id;
+    @Id
+    private int id;
     private String teamName;
-    private List<Athlete> roster;
+    //private List<Athlete> roster;
 
-    public Team(String id, String teamName) {
+    public Team(int id, String teamName) {
         this.id = id;
         this.teamName = teamName;
-        this.roster = new ArrayList<Athlete>();
+        //this.roster = new ArrayList<Athlete>();
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -23,12 +28,12 @@ public class Team {
         return teamName;
     }
 
-    public List<Athlete> getRoster() {
-        return roster;
-    }
+    // public List<Athlete> getRoster() {
+    //     return roster;
+    // }
 
-    public void addAthlete(Athlete athlete) {
-        roster.add(athlete);
-    }
+    // public void addAthlete(Athlete athlete) {
+    //     roster.add(athlete);
+    // }
 
 }

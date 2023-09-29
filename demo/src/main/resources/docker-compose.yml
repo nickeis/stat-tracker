@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  stattrackmongodb:
+    image: mongo:latest
+    container_name: stattrackmongodb
+    ports:
+      - "27017:27017"
+  stattrackapp:
+    image: stat-tracker:1.0
+    container_name: stattrackapp
+    ports:
+      - "8080:8080"
+    links:
+      - stattrackmongodb
